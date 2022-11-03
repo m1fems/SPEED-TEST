@@ -78,7 +78,7 @@ if cnt == 0:
 else:
     accuracy = 100/(len(random_text)/cnt)
 end_time = time.time()-start_time
-wpm = round(end_time, 2)/len(user_input)
+wpm = 60*(len(user_input)/round(end_time, 2))
 print(f'Accuracy: {round(accuracy, 2)}%')
-print(f'Time: {round(end_time, 2)}')
-print(f'Words per minute: {wpm}')
+print(f'Time: {round(end_time, 2)} seconds')
+print(f'Words per minute: {round(wpm,2)}')
