@@ -50,7 +50,8 @@ text12 = ("I am Dracula and I welcome you to my house. I must apologize for not 
 text13 = ("His ear heard more than what was said to him, and his slow speech had overtones not of thought,"
           " but of understanding beyond thought.").split(" ")
 
-text14 = "early lead turn general little face these point good school day too".split(" ")
+text14 = "early lead turn general little face these point good school day too".split(
+    " ")
 
 text15 = ("May your hands always be busy, may your feet always be swift."
           " May you have a strong foundation when the winds of changes shift. May your heart always be joyful,"
@@ -164,7 +165,8 @@ text47 = ("And if I should ever go away, well, then close your eyes and try to f
           " and then if you can remember, keep smiling, keep shining, knowing you can always count on me for sure."
           " That's what friends are for.").split(" ")
 
-text48 = "The greatest sources of our suffering are the lies we tell ourselves.".split(" ")
+text48 = "The greatest sources of our suffering are the lies we tell ourselves.".split(
+    " ")
 
 text49 = ("Once in a lifetime there comes a motion picture which changes the whole history of motion pictures."
           " A picture so stunning in its effect, so vast in its impact that it profoundly"
@@ -228,6 +230,7 @@ random_text = random.choice(list_texts)
 cnt = 0
 start_time = time.time()
 wpm = 0
+
 print(*random_text)
 user_input = input().split(" ")
 
@@ -252,6 +255,13 @@ else:
     accuracy = 100/(len(random_text)/cnt)
 end_time = time.time()-start_time
 wpm = 60*(len(user_input)/round(end_time, 2))
+
 print(f'Accuracy: {round(accuracy, 2)}%')
 print(f'Time: {round(end_time, 2)} seconds')
 print(f'Words per minute: {round(wpm,2)}')
+
+if accuracy < 100:
+    print('Wrong words:')
+    for x in range(len(user_input)):
+        if user_input[x] != random_text[x]:
+            print(f'{user_input[x]} ------> {random_text[x]}')
